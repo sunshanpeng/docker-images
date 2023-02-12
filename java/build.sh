@@ -1,5 +1,4 @@
-#Build java base
-DOCKER_IMAGE=sunshanpeng/jdk:8u261
+DOCKER_IMAGE=sunshanpeng/jdk:8u361
 REMOTE_DOCKER_IMAGE=registry.cn-hangzhou.aliyuncs.com/$DOCKER_IMAGE
 
 docker build -t $DOCKER_IMAGE .
