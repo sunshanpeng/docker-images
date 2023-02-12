@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  namenode:
+    image: sunshanpeng/hadoop:3.2.4
+    hostname: namenode
+    ports:
+      - '9870:9870' #hdfs ui
+    command: ["/opt/scripts/start-hdfs.sh"]
+    networks:
+      - hadoop-network
+  resourcemanager:
+    image: sunshanpeng/hadoop:3.2.4
+    hostname: resourcemanager
+    ports:
+      - '8088:8088' #yarn ui
+    command: ["/opt/scripts/start-yarn.sh"]
+    networks:
+      - hadoop-network
+  secondnamenode:
+    image: sunshanpeng/hadoop:3.2.4
+    hostname: secondnamenode
+    ports:
+      - '8082:8081'
+    command: ["sleep", "infinity"]
+    networks:
+      - hadoop-network
+networks:
+  hadoop-network:
